@@ -38,7 +38,8 @@ const theme = {
     light: '#ecf0f1',
     dark: '#233240',
     background: '#f37272',
-    text: '#fff',
+    text: '#081F3F',
+    textSecondary: '#929294',
     link: '#3498db',
 
     // Brands

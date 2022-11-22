@@ -35,25 +35,33 @@ export const getWeatherData = () => {
       const windSpeed = response.data.hourly.apparent_temperature;
       const relativeHumidity = response.data.hourly.relativehumidity_2m;
       const windDirection = response.data.hourly.winddirection_10m;
+      // daily data
       const minTemperature = response.data.daily.temperature_2m_min;
       const maxTemperature = response.data.daily.temperature_2m_max;
-
-      const dailyResponse = [12, 36, 60, 84, 108, 132, 156];
-      console.log(response.data);
-      const hourly = [];
-      dailyResponse.forEach((temperature) => {
-        hourly.push({
+      const hourly = [12, 36, 60, 84, 108, 132, 156];
+      const hourlyResponse = [];
+      hourly.forEach((temperature) => {
+        hourlyResponse.push({
           Date: Date[temperature],
           real_temperature: realTemperatures[temperature],
           apparent_temperature: apparentTemperature[temperature],
           wind_speed: windSpeed[temperature],
           relative_humidity: relativeHumidity[temperature],
           wind_direction: windDirection[temperature],
-          min_temperature: minTemperature[temperature],
-          max_temperature: maxTemperature[temperature],
         });
       });
-      console.log(hourly);
-      return hourly;
+      const dailyTime = response.data.daily.time;
+      const dailyResponse = [];
+      for (let index = 0; index < dailyTime.length; index += 1) {
+        dailyResponse.push({
+          min_temperature: minTemperature,
+          max_temperature: maxTemperature,
+        });
+      }
+      const weatherData = {
+        daily: dailyResponse,
+        hourly: hourlyResponse,
+      };
+      return weatherData;
     });
 };

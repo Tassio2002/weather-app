@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { Container } from './styles';
-import { getGeolocationData, getWeatherData } from '../../services/api';
+import { FlexContainer, MainContainer, AsideContainer } from './styles';
+
+import { Header } from '../../components/Header';
 
 function Main() {
   return (
-    <Container>
-      <h1>Weather info</h1>
-      <button type="button" onClick={getGeolocationData}>
-        Pegar geolocalização
-      </button>
-      <button type="button" onClick={getWeatherData}>
-        Pegar Previsção do tempo
-      </button>
-    </Container>
+    <FlexContainer>
+      <MainContainer>
+        <Header />
+      </MainContainer>
+      <AsideContainer>
+        <h1>aside</h1>
+      </AsideContainer>
+    </FlexContainer>
   );
 }
 
