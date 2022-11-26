@@ -1,9 +1,14 @@
 import React from 'react';
+
 import {
   HeaderContainer,
   DateContainer,
   CurrentMonth,
   FullDate,
+  SearchContainer,
+  SearchBox,
+  SearchIcon,
+  SearchBar,
 } from './styles';
 
 const Header = () => {
@@ -56,7 +61,7 @@ const Header = () => {
       'Dec',
     ];
     const date = new Date();
-    const currentDay = date.getDay();
+    const currentDay = date.getDate();
     const currentDayFormated = weekday[date.getDay()];
     const monthFormated = month[date.getMonth()];
     const currentYear = date.getFullYear();
@@ -70,6 +75,12 @@ const Header = () => {
         <CurrentMonth>{currentMonth}</CurrentMonth>
         <FullDate>{fullDate}</FullDate>
       </DateContainer>
+      <SearchContainer>
+        <SearchBox>
+          <SearchIcon />
+          <SearchBar />
+        </SearchBox>
+      </SearchContainer>
     </HeaderContainer>
   );
 };

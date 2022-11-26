@@ -40,6 +40,7 @@ export const getWeatherData = () => {
       const maxTemperature = response.data.daily.temperature_2m_max;
       const hourly = [12, 36, 60, 84, 108, 132, 156];
       const hourlyResponse = [];
+      console.log(response.data);
       hourly.forEach((temperature) => {
         hourlyResponse.push({
           Date: Date[temperature],

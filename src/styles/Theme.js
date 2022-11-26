@@ -40,7 +40,9 @@ const theme = {
     background: '#f37272',
     text: '#081F3F',
     textSecondary: '#929294',
+    lightText: '#B8B8BB',
     link: '#3498db',
+    boxColor: '#fafafa',
 
     // Brands
     devSamurai: '#f37272',
